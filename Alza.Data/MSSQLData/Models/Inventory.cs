@@ -9,13 +9,10 @@ namespace Alza.Data.MSSQLData.Models
     public class Inventory
     {
         [Key]
-        public int Id { get; set; }
+        public int ProductId { get; set; }
 
-        [Display(Name = "Product")]
-        public virtual int ProductId { get; set; }
+        public virtual Product OwnedProduct { get; set; }
 
-        [ForeignKey("Id")]
-        public virtual Product products { get; set; }
         public int UnitsInStock { get; set; }
         
     }

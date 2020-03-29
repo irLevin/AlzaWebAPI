@@ -16,5 +16,8 @@ namespace Alza.Common.Data
 
         bool UpdateProductDescription(int id, string description);
         Task<bool> UpdateProductDescriptionAsync(int id, string description);
+
+        IEnumerable<int> GetInventoryByProductId(int productId);
+        Task<IEnumerable<int>> GetInventoryByProductIdAsync(int productId);
     }
 }

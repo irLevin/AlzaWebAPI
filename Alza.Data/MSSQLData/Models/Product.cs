@@ -25,5 +25,7 @@ namespace Alza.Data.MSSQLData.Models
 
         [StringLength(1000, ErrorMessage = "The product description should be less 1000 characters")]
         public string Description { get; set; }
+        
+        public virtual Inventory ProductInventory { get; set; }
     }
 }

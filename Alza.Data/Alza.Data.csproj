@@ -14,6 +14,8 @@
     <Compile Remove="Migrations\20200329132556_addinventorymigration.Designer.cs" />
     <Compile Remove="Migrations\20200329135043_updateinventorymigration.cs" />
     <Compile Remove="Migrations\20200329135043_updateinventorymigration.Designer.cs" />
+    <Compile Remove="Migrations\20200329162447_updateschem.cs" />
+    <Compile Remove="Migrations\20200329162447_updateschem.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
