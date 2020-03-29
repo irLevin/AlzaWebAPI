@@ -10,6 +10,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200328181949_initialmigration.cs" />
     <Compile Remove="Migrations\20200328181949_initialmigration.Designer.cs" />
+    <Compile Remove="Migrations\20200329132556_addinventorymigration.cs" />
+    <Compile Remove="Migrations\20200329132556_addinventorymigration.Designer.cs" />
+    <Compile Remove="Migrations\20200329135043_updateinventorymigration.cs" />
+    <Compile Remove="Migrations\20200329135043_updateinventorymigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

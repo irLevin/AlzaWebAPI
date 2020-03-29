@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Alza.BusinessLogic.Products;
+using Alza.Common.Data;
+using Alza.Common.Logger;
 using Alza.Data.MSSQLData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +33,9 @@ namespace AlzaTask
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // My custom dependency injections
+            services.AddSingleton<IAlzaLogger, ConsoleLogger>();
+
 
             // Swagger documentation
             services.AddSwaggerGen(c =>

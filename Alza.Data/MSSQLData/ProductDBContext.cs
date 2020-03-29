@@ -12,6 +12,8 @@ namespace Alza.Data.MSSQLData
         {
         }
 
-        DbSet<Product> Products { get; set; }
+        DbSet<Product> Product { get; set; }
+        DbSet<Inventory> Inventory { get; set; }
+
     }
 }
