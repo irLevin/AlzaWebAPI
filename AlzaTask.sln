@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlzaTask", "AlzaTask\AlzaTask.csproj", "{244D805C-56DA-4960-B0AD-32683B7F8156}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza.BusinessLogic", "Alza.BusinessLogic\Alza.BusinessLogic.csproj", "{15842CCD-FDB9-4761-9EB4-C434E0BC9256}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alza.BusinessLogic", "Alza.BusinessLogic\Alza.BusinessLogic.csproj", "{15842CCD-FDB9-4761-9EB4-C434E0BC9256}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza.Common", "Alza.Common\Alza.Common.csproj", "{688B871A-0E80-47FC-9D88-36B34115A017}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alza.Common", "Alza.Common\Alza.Common.csproj", "{688B871A-0E80-47FC-9D88-36B34115A017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza.Data", "Alza.Data\Alza.Data.csproj", "{D5FAA0CE-DE59-4ADE-99AF-E3AEAF412809}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{688B871A-0E80-47FC-9D88-36B34115A017}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{688B871A-0E80-47FC-9D88-36B34115A017}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{688B871A-0E80-47FC-9D88-36B34115A017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FAA0CE-DE59-4ADE-99AF-E3AEAF412809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FAA0CE-DE59-4ADE-99AF-E3AEAF412809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FAA0CE-DE59-4ADE-99AF-E3AEAF412809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FAA0CE-DE59-4ADE-99AF-E3AEAF412809}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
