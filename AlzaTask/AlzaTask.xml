@@ -9,18 +9,31 @@
             Gets the list of available products.
             </summary>
             <returns>The list of available products.</returns>
+            <response code="200">Success</response>
+            <response code="404">Products not found</response>
+            <response code="500">Oops! Unexpected error </response>
         </member>
         <member name="M:AlzaTask.Controllers.ProductsController.GetProductByID(System.Int32)">
             <summary>
             Gets the product by id.
             </summary>
             <returns>The product that match id</returns>
+            <response code="200">Success</response>
+            <response code="404">Product not found</response>
+            <response code="400">Product id has invalid value</response> 
+            <response code="500">Oops! Unexpected error </response>
+            <param name="id">product id</param>
         </member>
         <member name="M:AlzaTask.Controllers.ProductsController.UpdateProductDescription(System.Int32,System.String)">
             <summary>
             Update description the provided product.
             </summary>
             <returns>Success/Failure message</returns>
+            <response code="200">Success</response>
+            <response code="400">Product id/description has invalid value</response> 
+            <response code="500">Oops! Unexpected error </response>
+            <param name="id">product id</param>
+            <param name="description">product description</param>
         </member>
     </members>
 </doc>

@@ -1,28 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using Alza.BusinessLogic.Inventory;
 using Alza.BusinessLogic.Products;
 using Alza.Common.Data;
-using Alza.Common.Entities;
 using Alza.Common.Logger;
 using Alza.Data.MockData;
 using Alza.Data.MSSQLData;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace AlzaTask
@@ -61,8 +52,20 @@ namespace AlzaTask
             services.AddSingleton<IAlzaLogger, ConsoleLogger>();
             services.AddScoped<IProductsRepo, ProductsRepo>();
             services.AddScoped<IInventoryRepo, InventoryRepo>();
-            services.AddSingleton<IDataProvider, MockDataProvider>();
-            services.AddScoped<IDataProvider, SQLDataProvider>();
+            bool isTestMode;
+            if(Boolean.TryParse(Configuration.GetValue<string>("isTestMode"), out isTestMode))
+            {
+                if (isTestMode)
+                {
+                    services.AddSingleton<IDataProvider, MockDataProvider>();
+                }
+                else
+                {
+                    services.AddScoped<IDataProvider, SQLDataProvider>();
+                }
+            }
+            
+            
 
 
             // Swagger documentation

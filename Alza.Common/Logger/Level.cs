@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Alza.Common.Logger
+﻿namespace Alza.Common.Logger
 {
     public enum Level
     {

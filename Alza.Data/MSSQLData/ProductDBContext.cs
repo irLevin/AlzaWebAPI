@@ -1,10 +1,6 @@
-﻿//using Alza.Data.MSSQLData.Models;
-using Alza.Common.Entities;
+﻿using Alza.Common.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace Alza.Data.MSSQLData
 {

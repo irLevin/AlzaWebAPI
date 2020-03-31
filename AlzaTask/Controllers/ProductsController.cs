@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using Alza.BusinessLogic;
 using Alza.BusinessLogic.Inventory;
 using Alza.BusinessLogic.Products;
 using Alza.Common.Logger;
 using Alza.Common.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AlzaTask.Controllers
@@ -37,8 +37,14 @@ namespace AlzaTask.Controllers
         /// Gets the list of available products.
         /// </summary>
         /// <returns>The list of available products.</returns>
+        /// <response code="200">Success</response>
+        /// <response code="404">Products not found</response>
+        /// <response code="500">Oops! Unexpected error </response>
         [HttpGet]
         [Route("")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             IEnumerable<Alza.Common.Entities.Product> products;
@@ -60,6 +66,7 @@ namespace AlzaTask.Controllers
             {
                 products = new List<Alza.Common.Entities.Product>();
                 _logger.LogError("Unexpected error accured in GetProducts", ex);
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             }
 
             return Ok(_mapper.Map<IEnumerable<Product>>(products));
@@ -69,8 +76,17 @@ namespace AlzaTask.Controllers
         /// Gets the product by id.
         /// </summary>
         /// <returns>The product that match id</returns>
+        /// <response code="200">Success</response>
+        /// <response code="404">Product not found</response>
+        /// <response code="400">Product id has invalid value</response> 
+        /// <response code="500">Oops! Unexpected error </response>
+        /// <param name="id">product id</param>
         [HttpGet]
         [Route("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Product>> GetProductByID(int id)
         {
             Alza.Common.Entities.Product product;
@@ -99,7 +115,15 @@ namespace AlzaTask.Controllers
         /// Update description the provided product.
         /// </summary>
         /// <returns>Success/Failure message</returns>
+        /// <response code="200">Success</response>
+        /// <response code="400">Product id/description has invalid value</response> 
+        /// <response code="500">Oops! Unexpected error </response>
+        /// <param name="id">product id</param>
+        /// <param name="description">product description</param>
         [HttpPut("{id}/{description}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Product>> UpdateProductDescription (int id, string description)
         {
             bool isUpdated = false;
