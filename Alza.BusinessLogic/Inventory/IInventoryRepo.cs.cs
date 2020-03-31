@@ -7,7 +7,7 @@ namespace Alza.BusinessLogic.Inventory
 {
     public interface IInventoryRepo
     {
-        IEnumerable<int> GetInventoryByProductId(int productId);
-        Task<IEnumerable<int>> GetInventoryByProductIdAsync(int productId);
+        IEnumerable<int> GetUnavailableInventory();
+        Task<IEnumerable<int>> GetUnavailableInventoryAsync();
     }
 }

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Alza.Data.MSSQLData.Models;
+using Alza.Common.Entities;
+//using Alza.Data.MSSQLData.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Alza.Data.MSSQLData

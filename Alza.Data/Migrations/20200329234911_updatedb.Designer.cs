@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alza.Data.Migrations
 {
     [DbContext(typeof(ProductDBContext))]
-    [Migration("20200329192731_update")]
-    partial class update
+    [Migration("20200329234911_updatedb")]
+    partial class updatedb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,9 +20,13 @@ namespace Alza.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Alza.Data.MSSQLData.Models.Inventory", b =>
+            modelBuilder.Entity("Alza.Common.Entities.Inventory", b =>
                 {
                     b.Property<int>("ProductId");
+
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("UnitsInStock");
 
@@ -34,41 +38,48 @@ namespace Alza.Data.Migrations
                         new
                         {
                             ProductId = 100001,
+                            Id = 0,
                             UnitsInStock = 100
                         },
                         new
                         {
                             ProductId = 100002,
+                            Id = 0,
                             UnitsInStock = 300
                         },
                         new
                         {
                             ProductId = 100003,
+                            Id = 0,
                             UnitsInStock = 5
                         },
                         new
                         {
                             ProductId = 100004,
+                            Id = 0,
                             UnitsInStock = 0
                         },
                         new
                         {
                             ProductId = 100005,
+                            Id = 0,
                             UnitsInStock = 0
                         },
                         new
                         {
                             ProductId = 100006,
+                            Id = 0,
                             UnitsInStock = 50
                         },
                         new
                         {
                             ProductId = 100007,
+                            Id = 0,
                             UnitsInStock = 100
                         });
                 });
 
-            modelBuilder.Entity("Alza.Data.MSSQLData.Models.Product", b =>
+            modelBuilder.Entity("Alza.Common.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -151,11 +162,11 @@ namespace Alza.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Alza.Data.MSSQLData.Models.Inventory", b =>
+            modelBuilder.Entity("Alza.Common.Entities.Inventory", b =>
                 {
-                    b.HasOne("Alza.Data.MSSQLData.Models.Product", "OwnedProduct")
+                    b.HasOne("Alza.Common.Entities.Product", "OwnedProduct")
                         .WithOne("ProductInventory")
-                        .HasForeignKey("Alza.Data.MSSQLData.Models.Inventory", "ProductId")
+                        .HasForeignKey("Alza.Common.Entities.Inventory", "ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

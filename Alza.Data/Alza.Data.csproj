@@ -16,9 +16,12 @@
     <Compile Remove="Migrations\20200329135043_updateinventorymigration.Designer.cs" />
     <Compile Remove="Migrations\20200329162447_updateschem.cs" />
     <Compile Remove="Migrations\20200329162447_updateschem.Designer.cs" />
+    <Compile Remove="Migrations\20200329233449_update3.cs" />
+    <Compile Remove="Migrations\20200329233449_update3.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />

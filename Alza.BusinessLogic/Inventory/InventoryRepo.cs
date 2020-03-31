@@ -19,14 +19,13 @@ namespace Alza.BusinessLogic.Inventory
             logger.Log($"InventoryRepo Initialized, working {dataProvider.GetType().Name}");
         }
 
-        public IEnumerable<int> GetInventoryByProductId (int productId)
+        public IEnumerable<int> GetUnavailableInventory()
         {
-            return _dataProvider.GetInventoryByProductId(productId);
+            return _dataProvider.GetUnavailableInventory();
         }
-
-        public Task<IEnumerable<int>> GetInventoryByProductIdAsync(int productId)
+        public Task<IEnumerable<int>> GetUnavailableInventoryAsync()
         {
-            return _dataProvider.GetInventoryByProductIdAsync(productId);
+            return _dataProvider.GetUnavailableInventoryAsync();
         }
     }
 }

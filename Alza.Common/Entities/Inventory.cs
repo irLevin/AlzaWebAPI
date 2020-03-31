@@ -7,11 +7,11 @@ namespace Alza.Common.Entities
 {
     public class Inventory
     {
-        [Required(ErrorMessage = "Id is required")]
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Product Id is required")]
+        [Key]
         public int ProductId { get; set; }
+
+        public virtual Product OwnedProduct { get; set; }
 
         public int UnitsInStock { get; set; }
 
