@@ -12,7 +12,7 @@ namespace Alza.Data.MockData
     {
         private static List<Product> products = new List<Product>
         {
-            new Product() { Id = 1000023, Name = "Product 100001", ImgUrl = "http://img.com/100001.jps", Price = (decimal)20.5, Description = "Product 100001 description" },
+            new Product() { Id = 100001, Name = "Product 100001", ImgUrl = "http://img.com/100001.jps", Price = (decimal)20.5, Description = "Product 100001 description" },
             new Product() { Id = 100002, Name = "Product 100002", ImgUrl = "http://img.com/100002.jps", Price = (decimal)12.5, Description = "Product 100002 description" },
             new Product() { Id = 100003, Name = "Product 100003", ImgUrl = "http://img.com/100003.jps", Price = (decimal)10, Description = "Product 100003 description" },
             new Product() { Id = 100004, Name = "Product 100004", ImgUrl = "http://img.com/100004.jps", Price = (decimal)16, Description = "Product 100004 description" },
@@ -43,13 +43,13 @@ namespace Alza.Data.MockData
         public Product GetProductByID(int id)
         {
             var product = products.FirstOrDefault(p => p.Id == id);
-            return product ?? new Product(product);
+            return product;
         }
 
         public Task<Product> GetProductByIDAsync(int id)
         {
             var product = products.FirstOrDefault(p => p.Id == id);
-            return Task.FromResult(product ?? new Product(product));
+            return Task.FromResult(product);
         }
 
         public bool UpdateProductDescription(int id, string description)

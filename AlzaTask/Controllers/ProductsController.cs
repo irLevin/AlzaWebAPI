@@ -54,7 +54,7 @@ namespace AlzaTask.Controllers
                 {
                     return NotFound();
                 }
-
+                
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace AlzaTask.Controllers
                 _logger.LogError("Unexpected error accured in GetProductByID", ex);
             }
 
-            return _mapper.Map<Product>(product);
+            return Ok(_mapper.Map<Product>(product));
         }
 
         /// <summary>

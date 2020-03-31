@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -8,8 +8,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="Moq" Version="4.13.1" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Alza.BusinessLogic\Alza.BusinessLogic.csproj" />
+    <ProjectReference Include="..\Alza.Common\Alza.Common.csproj" />
+    <ProjectReference Include="..\Alza.Data\Alza.Data.csproj" />
+    <ProjectReference Include="..\AlzaTask\AlzaTask.csproj" />
   </ItemGroup>
 
 </Project>
